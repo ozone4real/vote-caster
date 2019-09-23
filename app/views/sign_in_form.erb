@@ -1,0 +1,16 @@
+<div class="sign-up-container">
+  <h3>Log in</h3>
+  <form method='post' action='/login' >
+  <div class="field_container">
+  <label for="password" ><small><%= @error %> </small> </label>
+    <input name="email" placeholder="Email" type="email" value= "<%= params["email"] %>"  />
+  </div>
+  <div class="field_container">
+    <input name="password" placeholder="Password" value = "<%= params["password"] %>" type="password" />
+  </div>
+  <div class="field_container">
+    <button> Submit </button>
+  </div>
+  <p>Don't have an account? <a href="/">Sign up</a></p>
+  </form>
+</div>

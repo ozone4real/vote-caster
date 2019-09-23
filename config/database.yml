@@ -1,0 +1,18 @@
+default: &default
+  adapter: mysql2
+
+development:
+  <<: *default
+  database: vote_caster
+  username: root
+  password: ""
+
+test:
+  <<: *default
+  database: vote_caster_test
+  username: root
+  password: ""
+
+production:
+  <<: *default
+  database: db/production.mysql2

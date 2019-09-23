@@ -1,0 +1,25 @@
+<div class="sign-up-container">
+  <h3>Sign Up</h3>
+  <form method='post' action='/register' >
+  <div class="field_container">
+    <input name="first_name" id="first_name" placeholder="First Name" value= "<%= params["first_name"] %>" type="first_name" />
+    <label for="first_name" ><small><%= "first name #{@errors[:first_name].first}" if  @errors[:first_name].present? %> </small> </label>
+  </div>
+  <div class="field_container">
+    <input name="last_name" placeholder="Last Name" value= "<%= params["last_name"] %>" type="last_name" />
+    <label for="first_name" ><small><%= "last name #{@errors[:last_name].first}" if @errors[:last_name].present? %> </small> </label>
+  </div>
+  <div class="field_container">
+    <input name="email" placeholder="Email" type="email" value= "<%= params["email"] %>"  />
+    <label for="email" ><small><%= "email #{@errors[:email].first}" if @errors[:email].present? %> </small> </label>
+  </div>
+  <div class="field_container">
+    <input name="password" placeholder="Password" value = "<%= params["password"] %>" type="password" />
+    <label for="password" ><small><%= "password #{@errors[:email].first}" if @errors[:password].present? %> </small> </label>
+  </div>
+  <div class="field_container">
+    <button> Submit </button>
+  </div>
+  <p> Already have an account? <a href="/login">Log in</a> </p>
+  </form>
+</div>
