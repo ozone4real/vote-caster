@@ -1,9 +1,13 @@
 <div class="container">
+<div class="main-container">
   <div class="col-md-8 col-md-offset-2">
-  <ul>
+  <% if is_admin? %>
+    <ul>
+      <li><a href = "/create_poll">Create Poll</a></li>
+      <li><a href = "/view_results">View Poll Results</a></li>
+    </ul>
+  <% end %>
   
-
-  </ul>
     <%# <h2>Sinatra Template Default Page</h2>
 
     <div class="content">
@@ -11,5 +15,6 @@
       as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
       your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
     </div> %>
+  </div>
   </div>
 </div>

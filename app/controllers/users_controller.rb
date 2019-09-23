@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   post "/register" do
-    # I18n.locale = nil
     @user = User.new(params.slice("email", "password", "first_name", "last_name"))
     if @user.save
       session[:user_id] = @user.id
@@ -9,19 +8,19 @@ class UsersController < ApplicationController
     else
       flash[:now] = @user.errors.full_messages[0]
       @errors = @user.errors.messages
-      erb :sign_up_form
+      erb :'sign_up_form.html'
     end
   end
 
   get '/login' do
     @user = User.new
-    erb :sign_in_form
+    erb :'sign_in_form.html'
   end
 
   get '/register' do
     @user = User.new
     @errors = @user.errors.messages
-    erb :sign_up_form
+    erb :'sign_up_form.html'
   end
 
 
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
       redirect to '/' 
     end
     @error = "Invalid email or password"
-    erb :sign_in_form
+    erb :'sign_in_form.html'
   end
 
   get'/logout' do

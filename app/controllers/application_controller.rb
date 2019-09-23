@@ -1,7 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-  # configure(:development) { set :session_secret, "here be dragons" }
+  configure(:development) { set :session_secret, "here be dragons" }
   
   configure do
     enable :sessions
@@ -19,13 +19,17 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+
+    def is_admin?
+      current_user&.admin
+    end
   end
 
   get '/' do
     if logged_in?
-      erb :welcome
+      erb :'welcome.html'
     else
-      erb :sign_in_form
+      erb :'sign_in_form.html'
     end
   end
 end

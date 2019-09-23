@@ -19,18 +19,16 @@
     <div class="wrapper">
     <%= styled_flash %>
     <div class="container">
-    <header><div><h2>Vote Caster</h2> </div>
+    <header><div class="app-name"> <h2><a href="/">Vote Caster</a></h2> </div>
     <% if logged_in? %>
-    <div> 
+    <div class="account-options"> 
     <span>
-    <%= "Welcome #{current_user.first_name}" %> </span> <a href='/logout'> Log out</a>
+    <%= "Hi #{current_user.first_name}" %> </span> <a href='/logout'> Log out</a>
     </div>
     <% end %>
     </header>
-
     </div>
-
-        <%= yield %>
+    <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2019 <strong>VoteCaster</strong></small>
