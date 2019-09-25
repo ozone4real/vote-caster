@@ -1,5 +1,22 @@
 <div class="poll-builder-container">
-<div class="question-container">
-  <input type="text" name="question" />
-</div>
+  <h3 class="text-center">Create Poll</h3>
+  <div class="question-container">
+    <form id="poll-builder">
+      <div class="field-container">
+        <label for="question">Question</label>
+        <input type="text" name="question" id="question" />
+      </div>
+      <div class="field-container">
+      <label for="options-container">Options</label>
+      <div class="options-container" id="options-container" > </div>
+        <input type="text" name="option" class="q-option" placeholder="Add Option" />
+      </div>
+      <div class="field-container">
+        <button type="submit">Submit</button>
+      </div>
+      <%# <div class="field-container">
+        <i class="fas fa-plus-circle fa-2x"></i> <span>Add Option</span>
+      </div> %>
+    </form>
+  </div>
 </div>

@@ -1,0 +1,23 @@
+#poll-builder {
+	width: 40%;
+	margin: 30px auto;
+
+	.option-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		padding: 10px;
+		border-radius: 5px;
+		margin: 10px 0 10px 0;
+		outline: none;
+		border: 1px solid #d8d8d8;
+	}
+}
+
+#poll-builder input {
+	margin: 10px auto 20px auto;
+	padding: 10px;
+}
+
+

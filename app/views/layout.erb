@@ -10,16 +10,17 @@
     <title>VoteCaster</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/application.css" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="/stylesheets/user.css" />
-    <script src="/javascripts/application.js"></script>
+  
+    <script src="assets/application.js"></script>
   </head>
   <body>
     <div class="wrapper">
     <%= styled_flash %>
     <div class="container">
-    <header><div class="app-name"> <h2><a href="/">Vote Caster</a></h2> </div>
+    <header><div class="app-name"> <h2><a href="/">Pollz</a></h2> </div>
     <% if logged_in? %>
     <div class="account-options"> 
     <span>
@@ -35,7 +36,7 @@
       </footer>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

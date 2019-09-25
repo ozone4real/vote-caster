@@ -1,0 +1,29 @@
+form input,
+form button {
+	display: block;
+	width: 100%;
+	padding: 15px;
+	border-radius: 5px;
+	outline: none;
+	border: 1px solid #d8d8d8;
+}
+
+.field_container {
+	width: 50%;
+	margin: 20px auto;
+}
+
+.auth-container label {
+	color: red;
+}
+
+.auth-container {
+  margin-top: 50px;
+}
+
+form button {
+	background: rgb(14, 76, 97);
+	color: white;
+	border: none;
+	width: 100%;
+}
