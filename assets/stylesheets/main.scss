@@ -1,11 +1,10 @@
-
 @media screen {
 	/* --- Reset Styles --- */
 	* {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		font-size: 16px;
+		font-size: 14px;
 		box-sizing: border-box;
 	}
 
@@ -20,7 +19,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: 2px solid #ccc;
+		border-bottom: 2px solid rgb(14, 76, 97);
 		margin-bottom: 20px;
 	}
 
@@ -35,9 +34,13 @@
 		color: unset;
 		background: rgb(14, 76, 97);
 		color: white;
-		padding: 8px 15px;
+		padding: 6px 13px;
 		border-radius: 10px;
 		margin-left: 15px;
+	}
+
+	.error {
+		color: red
 	}
 
 	/* --- Welcome Page Styles --- */
@@ -54,6 +57,7 @@
 
 	.main-container li {
 		margin: 20px 0 20px 0;
+		cursor: pointer;
 	}
 
 	.main-container a {
@@ -64,10 +68,17 @@
 		margin: auto;
 		text-align: center;
 		width: 70%;
-		padding: 20px;
+		padding: 20px 25px;
 		display: block;
 		border-radius: 40px;
 	}
+
+	// .view-poll-links a {
+	// 	color: rgb(14, 76, 97);
+	// 	background: white;
+	// 	border: 2px solid rgb(14, 76, 97);
+	// 	box-sizing: border-box;
+	// }
 
 	input {
 		display: block;
@@ -121,6 +132,11 @@
 		width: 30%; /* 240px / 800px */
 	}
 
+	.fa-chevron-down {
+		float: right;
+		font-size: 20px;
+	}
+
 	.sidebar ul {
 		font-size: 14px;
   }
@@ -134,7 +150,7 @@
 	}
 
 	footer.branding {
-		border-top: 2px solid #ccc;
+		border-top: 2px solid rgb(14, 76, 97);
 		margin-top: 70px;
 		padding-top: 20px;
 	}

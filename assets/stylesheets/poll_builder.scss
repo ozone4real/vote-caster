@@ -2,6 +2,21 @@
 	width: 40%;
 	margin: 30px auto;
 
+	input,
+	select {
+		font-size: 14px;
+		margin: 10px auto 20px auto;
+		padding: 10px;
+	}
+	
+	button {
+		font-size: 14px;
+	}
+
+	select {
+		height: 41px;
+	}
+
 	.option-container {
 		display: flex;
 		flex-direction: row;
@@ -12,12 +27,29 @@
 		margin: 10px 0 10px 0;
 		outline: none;
 		border: 1px solid #d8d8d8;
+
+		.fa-times {
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		.fa-times:hover {
+			color: red;
+		}
+	}
+
+	.poll-duration-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.duration-elem {
+			margin-right: 5px;
+		}
 	}
 }
 
-#poll-builder input {
-	margin: 10px auto 20px auto;
-	padding: 10px;
-}
-
-
+// #poll-builder input, #poll-builder select {
+// 	margin: 10px auto 20px auto;
+// 	padding: 10px;
+// }

@@ -1,0 +1,10 @@
+<div class="polls-container">
+<h3> <%= @heading %> </h3>
+<% @polls.each do |poll| %>
+  <ul>
+    <li> 
+    <h4> <%= poll.question %> <span> <%= time_ago_in_words(poll.created_at) %> </span> </h4>
+    </li> 
+  </ul>
+<% end %>
+</div>

@@ -1,13 +1,25 @@
 require './config/environment'
+require 'sinatra/respond_with'
 
 class ApplicationController < Sinatra::Base
   # configure(:development) do  
   #   register Sinatra::Reloader
   #   also_reload 'app/views'
   # end
-  
+  register Sinatra::RespondWith
+  include ActionView::Helpers::DateHelper
   set :session_secret, "here be dragons"
+  before do
+   if @env["CONTENT_TYPE"] == "application/json"
+     request.body.rewind
+     params.merge!(JSON.parse(request.body.read))
+   end
+  end
   configure do
+    p File.join(settings.root + 'locales')
+    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.backend.load_translations
     enable :sessions
     set :environment, Sprockets::Environment.new
     environment.append_path "assets/stylesheets"

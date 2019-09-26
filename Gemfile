@@ -21,14 +21,16 @@ gem 'shotgun'
 gem 'sinatra-flash'
 gem 'pry'
 gem 'bcrypt'
+gem 'i18n'
 gem 'tux'
 gem 'mysql2', '~> 0.5.2'
-gem 'jquery', '~> 0.0.1'
+gem 'sinatra-contrib', :require => 'sinatra/respond_with'
+gem 'actionview', :require => 'action_view/helpers'
+# gem 'chosen'
 # gem 'turbolinks', '~> 5.2.0
 
 group :development, :test do
   gem 'rerun'
-  gem 'sinatra-contrib'
 end
 
 group :test do

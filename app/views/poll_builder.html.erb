@@ -3,16 +3,59 @@
   <div class="question-container">
     <form id="poll-builder">
       <div class="field-container">
-        <label for="question">Question</label>
-        <input type="text" name="question" id="question" />
+        <label for="question">
+          <h5>Question</h5>
+        </label>
+        <input type="text" name="question" id="question" required />
+      </div>
+      <label for="question">
+        <h5>Question Type</h5>
+      </label>
+      <div class="field-container">
+        <select class="select-question-type">
+          <option value="text"> Text</option>
+          <option value="date-time"> Date-Time</option>
+          <option value="time"> Time</option>
+          <option value="yes/no">Yes/No</option>
+        </select>
       </div>
       <div class="field-container">
-      <label for="options-container">Options</label>
-      <div class="options-container" id="options-container" > </div>
-        <input type="text" name="option" class="q-option" placeholder="Add Option" />
+        <label for="options-container">
+          <h5>Options</h5>
+        </label>
+        <small class="error" id="options-error"> </small>
+        <div class="options-container" id="options-container" >
+        </div>
       </div>
       <div class="field-container">
-        <button type="submit">Submit</button>
+        <div class="option-input"><input type="text" name="option" class="q-option" placeholder="Add Option" /></div>
+      </div>
+      <div class="field-container">
+        <h4>Duration</h4>
+        <small class="error" id="duration-error"> </small>
+        <div class="poll-duration-container">
+          <select id="days" class="duration-elem" required>
+            <option style="opacity: 0.7;" selected disabled>Days</option>
+            <% 8.times do |i| %>
+              <option value= "<%= i %>" ><%="#{i}"%></option>
+            <% end %>
+          </select>
+          <select id="hours" class="duration-elem" required>
+            <option style="opacity: 0.7;" selected disabled>Hours</option>
+            <% 24.times do |i| %>
+              <option value= "<%= i %>" ><%="#{i}"%></option>
+            <% end %>
+          </select>
+          <select class="duration-elem" id="minutes" required>
+            <option style="opacity: 0.7;" selected disabled>Minutes</option>
+            <% 60.times do |i| %>
+              <option value= <%= i %> ><%="#{i}"%></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <div class="field-container">
+        <button type="submit" class="submit-btn">Submit</button>
       </div>
       <%# <div class="field-container">
         <i class="fas fa-plus-circle fa-2x"></i> <span>Add Option</span>

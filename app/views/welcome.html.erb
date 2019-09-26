@@ -4,7 +4,8 @@
   <% if is_admin? %>
     <ul>
       <li><a href = "/create_poll">Create Poll</a></li>
-      <li><a href = "/view_results">View Poll Results</a></li>
+      <li><a href = "/polls?active=true">Active Polls </a></li>
+      <li><a href = "/polls?active=false">Expired Polls </a></li>
     </ul>
   <% end %>
   
