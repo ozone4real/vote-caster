@@ -19,19 +19,21 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: 2px solid rgb(14, 76, 97);
+		border-bottom: 1px solid rgb(14, 76, 97);
 		margin-bottom: 20px;
+	}
+
+	a {
+		color: unset;
 	}
 
 	.app-name a {
 		text-decoration: none;
-		color: unset;
 		font-size: unset;
 	}
 
 	.account-options a {
 		text-decoration: none;
-		color: unset;
 		background: rgb(14, 76, 97);
 		color: white;
 		padding: 6px 13px;
@@ -60,9 +62,8 @@
 		cursor: pointer;
 	}
 
-	.main-container a {
+	.main-container ul a {
 		text-decoration: none;
-		color: unset;
 		background: rgb(14, 76, 97);
 		color: white;
 		margin: auto;
@@ -91,7 +92,7 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		margin: 16px auto;
 		max-width: 960px;
-		padding: 2.25%; /* 18px / 800px */
+		padding: 2.25% 40px; /* 18px / 800px */
 		width: 85%;
 	}
 
@@ -150,7 +151,7 @@
 	}
 
 	footer.branding {
-		border-top: 2px solid rgb(14, 76, 97);
+		border-top: 1px solid rgb(14, 76, 97);
 		margin-top: 70px;
 		padding-top: 20px;
 	}

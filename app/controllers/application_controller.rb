@@ -16,9 +16,8 @@ class ApplicationController < Sinatra::Base
    end
   end
   configure do
-    p File.join(settings.root + 'locales')
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.load_path += Dir[File.join(File.expand_path('./config'), 'locales', '*.yml')]
     I18n.backend.load_translations
     enable :sessions
     set :environment, Sprockets::Environment.new
@@ -47,6 +46,7 @@ class ApplicationController < Sinatra::Base
       current_user&.admin
     end
   end
+  
 
   get "/assets/*" do
     # binding.pry

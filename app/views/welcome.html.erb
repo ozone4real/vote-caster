@@ -1,12 +1,33 @@
 <div class="container">
-<div class="main-container">
-  <div class="col-md-8 col-md-offset-2">
+
   <% if is_admin? %>
+  <div class="main-container">
+  <div class="col-md-8 col-md-offset-2">
     <ul>
       <li><a href = "/create_poll">Create Poll</a></li>
       <li><a href = "/polls?active=true">Active Polls </a></li>
       <li><a href = "/polls?active=false">Expired Polls </a></li>
     </ul>
+  </div>
+  </div>
+  <% else %>
+  <h3 align="center">Polls For You</h3>
+  <div class="polls-container">
+    <% [*Poll.active_polls, *Poll.expired_polls].each do |poll| %>
+      <a href="<%= "/poll/#{poll.id}" %>" class="poll-card">
+       <h4> <%= poll.question %> </h4>
+    <% if poll.active? %>
+    <i> Active</i>
+    <small> <%="Expires #{distance_of_time_in_words(Time.now, poll.expires_at)} from now" %> </small>
+    <% else %>
+     <i> Expired</i>
+    <small><%= "Expired #{time_ago_in_words(poll.expires_at)} ago" %></small>
+    <% end %>
+    <small><%= "Created #{time_ago_in_words(poll.created_at)} ago" %></small>
+    </a>
+    <% end %>
+    
+    </div>
   <% end %>
   
     <%# <h2>Sinatra Template Default Page</h2>
@@ -16,6 +37,4 @@
       as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
       your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
     </div> %>
-  </div>
-  </div>
 </div>

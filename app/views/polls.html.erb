@@ -1,10 +1,15 @@
-<div class="polls-container">
-<h3> <%= @heading %> </h3>
+<div class="polls-view">
+<h3 align="center"> <%= @heading %> </h3>
+<div class="polls-container"> 
 <% @polls.each do |poll| %>
-  <ul>
-    <li> 
-    <h4> <%= poll.question %> <span> <%= time_ago_in_words(poll.created_at) %> </span> </h4>
-    </li> 
-  </ul>
+  <a href="<%= "/poll/#{poll.id}" %>" class="poll-card">
+    <h4> <%= poll.question %> </h4> <small><%= "Created #{time_ago_in_words(poll.created_at)} ago" %></small>
+    <% if @heading == 'Active Polls' %>
+    <small> <%="Expires #{distance_of_time_in_words(Time.now, poll.expires_at)} from now" %> </small>
+    <% else %>
+    <small><%= "Expired #{time_ago_in_words(poll.expires_at)} ago" %></small>
+    <% end %>
+    </a>
 <% end %>
+</div>
 </div>

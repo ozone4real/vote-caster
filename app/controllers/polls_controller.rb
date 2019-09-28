@@ -8,12 +8,11 @@ class PollsController < ApplicationController
     poll = Poll.create!(question: questionData[:question],
      expires_at: Time.now + duration[:days].days + duration[:hours].hours + duration[:minutes].minutes,
       question_type: questionData[:question_type], user_id: current_user.id)
-    unless questionData[:type] === 'yes/no'
-      poll.question_options.build(options.map {|option| {option: option} }).each(&:save!)
-    end
+    poll.question_options.build(options.map {|option| {option: option} }).each(&:save!)
     [200, { message: "Poll successfully created", poll: poll }.to_json]
   rescue => e
-    [501, { message: e.message }.to_json]
+    poll&.destroy
+    [422, { message: e.message }.to_json]
   end
 
   get '/polls' do
@@ -31,6 +30,7 @@ class PollsController < ApplicationController
   end
 
   get '/poll/:id' do
+    @poll = Poll.find(params[:id])
     erb :'poll.html'
   end
 end
