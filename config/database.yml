@@ -15,4 +15,5 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
   database: db/production.mysql2
