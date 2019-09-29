@@ -14,6 +14,10 @@
 		width: 100%;
 	}
 
+	main {
+		min-height: 400px;
+	}
+
 	header {
 		display: flex;
 		flex-direction: row;
@@ -30,6 +34,9 @@
 	.app-name a {
 		text-decoration: none;
 		font-size: unset;
+		.fa-vote-yea {
+			font-size: inherit;
+		}
 	}
 
 	.account-options a {
@@ -42,7 +49,7 @@
 	}
 
 	.error {
-		color: red
+		color: red;
 	}
 
 	/* --- Welcome Page Styles --- */
@@ -140,11 +147,11 @@
 
 	.sidebar ul {
 		font-size: 14px;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
+	}
+
+	.text-center {
+		text-align: center;
+	}
 
 	.branding {
 		clear: both;

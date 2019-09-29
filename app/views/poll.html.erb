@@ -1,11 +1,30 @@
 <div class="poll-question-container">
-<h3 align=center aria-label="question" >Cast Your Vote</h3>
-<div class="poll-question" data-poll_id="<%= @poll.id %>">
-<h3 ><%= @poll.question %></h3>
-<% @poll.question_options.each do |option| %>
-<ul>
-<li><a href="#" class="option" id="<%= option.id %>"><%= option.option %></a></li>
-</ul>
-<% end %>
-</div>
+  <h3 align=center aria-label="question" >
+    <%= show_result? ? "Vote Result" : "Cast Your Vote"  %>
+  </h3>
+  <div class="poll-question" data-poll_id="<%= @poll.id %>">
+    <h3 ><%= @poll.question %></h3>
+    <div>
+    <small style="color: gray">
+    <%= @poll.active? ? "#{distance_of_time_in_words(Time.now, @poll.expires_at)} left" : "expired" %> 
+    </small>
+    </div>
+    <ul>
+      <% @poll.question_options.each do |option| %>
+        <% if show_result? %>
+          <li class="vote-count" style="<%= "background: linear-gradient(90deg, rgb(210, 230, 241) #{votes_percentage(option)}%, #F2F2F2 0);" %>" >
+            <%= option.option %> <%= "<i class='fas fa-check' title='Your vote'></i>" if option.user_vote?(current_user) %> <span><%= "#{votes_percentage(option)}%" %></span>
+          </li>
+  
+        <% else %>
+          <li>
+            <a href="#" class="option" id="<%= option.id %>">
+              <%= option.option %>
+            </a>
+          </li>
+        <% end %>
+    <% end %>
+    </ul>
+    <div><small style="color: gray"> <%= "<i class='fa fa-users' aria-hidden='true'></i> #{@votes_count} people voted" if show_result? %></small></div>
+  </div>
 </div>

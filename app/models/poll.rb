@@ -8,7 +8,7 @@ class Poll < ActiveRecord::Base
     "#{Time.now}" < expires_at
   end
 
-  def vote_count
+  def votes_count
     question_options.includes(:votes).map(&:votes).flatten.size
   end
 

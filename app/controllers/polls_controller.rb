@@ -30,7 +30,9 @@ class PollsController < ApplicationController
   end
 
   get '/poll/:id' do
-    @poll = Poll.find(params[:id])
+    @poll = Poll.includes(question_options: :votes).find(params[:id])
+    @voted = current_user.voted?(@poll)
+    @votes_count = @poll.votes_count
     erb :'poll.html'
   end
 end

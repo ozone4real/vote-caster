@@ -1,5 +1,6 @@
-class PollBuilder {
+class PollBuilder extends Main {
 	constructor() {
+		super()
 		this.handleQuestionChange();
 		this.handleAddOption();
 		this.handleQuestionTypeSelect();
@@ -143,33 +144,11 @@ class PollBuilder {
 				dataType: 'json',
 				contentType: 'application/json',
 				success: ({message, poll}) => {
-					this.flash().success(message)
+					this.flash.success(message)
 					window.location.href = `/poll/${poll.id}`
 			}
 			});
 		});
-	}
-
-	flash() {
-		toastr.options = {
-			"closeButton": true,
-			"debug": false,
-			"newestOnTop": false,
-			"progressBar": true,
-			"positionClass": "toast-top-right",
-			"preventDuplicates": false,
-			"onclick": null,
-			"showDuration": "300",
-			"hideDuration": "1000",
-			"timeOut": "5000",
-			"extendedTimeOut": "1000",
-			"showEasing": "swing",
-			"hideEasing": "linear",
-			"showMethod": "show",
-			"hideMethod": "hide"
-		}
-
-		return toastr;
 	}
 }
 

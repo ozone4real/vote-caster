@@ -9,8 +9,4 @@ class VotesController < ApplicationController
   rescue => e
     [500, {message: e.message}.to_json]
   end
-
-  private
-  def vote_option_count
-  end
 end

@@ -45,11 +45,16 @@ class ApplicationController < Sinatra::Base
     def is_admin?
       current_user&.admin
     end
+    def votes_percentage(option)
+      option.votes.present? ? option.votes.size * 100/ @votes_count : 0
+    end
+    def show_result?
+      @show_result ||= current_user.admin || !@poll.active? || @voted
+    end
   end
-  
+
 
   get "/assets/*" do
-    # binding.pry
     env["PATH_INFO"].sub!("/assets", "")
     settings.environment.call(env)
   end

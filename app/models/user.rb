@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_many :votes
 
   def voted?(poll)
-    options = poll.question_options.includes(votes: :voter)
+    options = poll.question_options.includes(:votes)
     options.map do |option|    
-      option.votes.map(&:voter)
-    end.flatten.include? self
+      option.votes.map(&:user_id)
+    end.flatten.include? self.id
   end
 end
