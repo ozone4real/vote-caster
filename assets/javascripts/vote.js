@@ -10,8 +10,8 @@ class Vote extends Main {
 				url: '/vote',
 				data: { option_id: e.target.id, poll_id: $('.poll-question').data('poll_id') },
 				success: data => {
-          // window.location.reload()
           this.flash.success(data.message);
+          window.location.reload()
 				},
 				error: ({responseJSON: {message}}) => {
 					this.flash.error(message);

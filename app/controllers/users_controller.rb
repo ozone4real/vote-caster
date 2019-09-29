@@ -2,11 +2,10 @@ class UsersController < ApplicationController
   post "/register" do
     @user = User.new(params.slice("email", "password", "first_name", "last_name"))
     if @user.save
-      session[:user_id] = @user.id
+      session[:user] = {id: @user.id}
       
       redirect '/'
     else
-      flash[:now] = @user.errors.full_messages[0]
       @errors = @user.errors.messages
       erb :'sign_up_form.html'
     end
