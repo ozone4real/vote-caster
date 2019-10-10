@@ -8,7 +8,7 @@ class PollsController < ApplicationController
     poll = Poll.create!(question: questionData[:question],
      expires_at: Time.now + duration[:days].days + duration[:hours].hours + duration[:minutes].minutes,
       question_type: questionData[:question_type], user_id: current_user.id)
-    poll.question_options.build(options.map {|option| {option: option} }).each(&:save!)
+    poll.question_options.create!(options.map {|option| {option: option} })
     [200, { message: "Poll successfully created", poll: poll }.to_json]
   rescue => e
     poll&.destroy
